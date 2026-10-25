@@ -1,0 +1,36 @@
+EDELPHIA — Pacote de logótipos (fundo transparente)
+=====================================================
+
+VERSÕES DO LOGÓTIPO
+- simbolo     O Φ com a órbita (ícone, avatar, carimbo)
+- nome        Só o nome EDELPHIA
+- horizontal  Símbolo à esquerda + nome (site, e-mail, cabeçalhos)
+- vertical    Símbolo em cima + nome
+- completo    Vertical + "Science / Algorithms / Intelligence" + Φ = ∫ knowledge · dt
+
+CORES
+- para-fundo-escuro  Texto claro, Φ em degradê azul-branco (use sobre fundos escuros)
+- para-fundo-claro   Texto azul-marinho, Φ em degradê azul-marinho (use sobre fundos claros)
+- branco             Tudo branco (sobre fotos ou cores fortes)
+- preto              Tudo azul-marinho escuro (impressão a uma cor, carimbos)
+
+FORMATOS
+- SVG   Vetorial, para site e para editar (Figma, Illustrator, Inkscape). O texto já está em contornos, não precisa das fontes.
+- PDF   Vetorial, para gráficas e documentos.
+- EPS   Vetorial, para gráficas que pedem EPS. Nota: o EPS não suporta transparência parcial; os elementos semitransparentes (órbita de trás, halo) ficam ligeiramente diferentes. Prefira PDF ou SVG.
+- PNG   Imagem com fundo transparente em vários tamanhos (largura em píxeis no nome do ficheiro).
+- Favicon  Versão simplificada do símbolo, com traços mais grossos para ficar legível em tamanhos pequenos:
+           favicon_*.ico (16/32/48 px), PNG de 16 a 512 px e apple-touch-icon_180px.png (este tem fundo escuro, porque o iPhone não aceita transparência).
+
+CORES DA MARCA
+- Azul Edelphia   #2F7BFF
+- Azul-marinho    #0A0F18
+- Branco frio     #F2F5F9
+- Cinza texto     #A3B1C2 (em fundo escuro) / #4A5666 (em fundo claro)
+- Fundo escuro    #05080E
+
+TIPOGRAFIA
+- Nome: Michroma
+- Textos de apoio: Space Grotesk
+- Equação: STIX Two
+Todas são fontes gratuitas do Google Fonts (licença SIL Open Font License).
