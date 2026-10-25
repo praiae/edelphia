@@ -529,9 +529,12 @@ html[data-theme="light"] .chat__panel { box-shadow: 0 30px 80px -24px rgba(10, 1
 .chat__icon svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
 .chat__log { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 18px 16px 8px; display: flex; flex-direction: column; gap: 12px; scrollbar-width: thin; scrollbar-color: rgba(var(--gray-rgb), .3) transparent; }
-.msg { display: flex; animation: msg-in .5s var(--ease) both; }
+.msg { display: flex; flex-direction: column; align-items: flex-start; animation: msg-in .5s var(--ease) both; }
 @keyframes msg-in { from { opacity: 0; transform: translateY(10px); } }
-.msg--user { justify-content: flex-end; }
+.msg--user { align-items: flex-end; }
+.msg__next { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; max-width: 92%; animation: msg-in .5s var(--ease) both; }
+.msg__next button { padding: 6px 10px; border-radius: 999px; border: 1px solid rgba(47, 123, 255, .3); background: transparent; color: var(--blue-soft); font: 400 .76rem/1.2 var(--f-text); text-align: left; transition: background .3s, border-color .3s, color .3s; }
+.msg__next button:hover { background: rgba(47, 123, 255, .15); border-color: var(--blue); color: var(--white); }
 .msg__body { max-width: 86%; padding: 11px 14px; border-radius: 16px; font-size: .92rem; line-height: 1.55; overflow-wrap: anywhere; }
 .msg--bot .msg__body { background: rgba(var(--surface-rgb), .7); border: 1px solid var(--line); border-bottom-left-radius: 5px; color: var(--white); }
 .msg--user .msg__body { background: var(--blue); color: #fff; border-bottom-right-radius: 5px; }
