@@ -439,6 +439,53 @@
     </div>
   </footer>
 
+  <!-- ============ ASSISTANT ============ -->
+  <div class="chat" data-chat>
+    <button class="chat__fab" data-chat-toggle aria-expanded="false" aria-controls="chat-panel" data-i18n-aria="chat.open">
+      <svg class="chat__fab-phi" viewBox="0 0 240 240" aria-hidden="true">
+        <g transform="translate(120 120) rotate(-22)"><ellipse rx="108" ry="30" fill="none" stroke="currentColor" stroke-width="10" opacity=".55"/></g>
+        <path d="M42 120 A78 72 0 1 0 198 120 A78 72 0 1 0 42 120 Z M70 120 A50 68 0 1 0 170 120 A50 68 0 1 0 70 120 Z" fill="currentColor" fill-rule="evenodd"/>
+        <rect x="112" y="22" width="16" height="196" fill="currentColor"/>
+      </svg>
+      <svg class="chat__fab-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+
+    <section class="chat__panel" id="chat-panel" role="dialog" aria-labelledby="chat-title" inert>
+      <header class="chat__head">
+        <div class="chat__avatar" aria-hidden="true"><span>Φ</span><i></i></div>
+        <div class="chat__who">
+          <h2 class="chat__title" id="chat-title" data-i18n="chat.title"></h2>
+          <p class="chat__status"><b></b><span data-i18n="chat.status"></span></p>
+        </div>
+        <button class="chat__icon" data-chat-reset data-i18n-aria="chat.reset">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+        </button>
+        <button class="chat__icon" data-chat-close data-i18n-aria="chat.close">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </header>
+
+      <div class="chat__log" data-chat-log data-lenis-prevent aria-live="polite">
+        <div class="msg msg--bot"><div class="msg__body" data-i18n="chat.greeting"></div></div>
+      </div>
+
+      <div class="chat__suggest" data-chat-suggest>
+        <button type="button" data-i18n="chat.s1"></button>
+        <button type="button" data-i18n="chat.s2"></button>
+        <button type="button" data-i18n="chat.s3"></button>
+        <button type="button" data-i18n="chat.s4"></button>
+      </div>
+
+      <form class="chat__form" data-chat-form>
+        <textarea rows="1" maxlength="2000" data-chat-input data-i18n-placeholder="chat.placeholder" aria-labelledby="chat-title"></textarea>
+        <button type="submit" class="chat__send" data-i18n-aria="chat.send">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+      <p class="chat__note" data-i18n="chat.note"></p>
+    </section>
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -446,5 +493,6 @@
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/field.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/chat.js"></script>
 </body>
 </html>

@@ -49,6 +49,7 @@
     $$('[data-i18n]').forEach(el => { el.innerHTML = t(el.dataset.i18n); });
     $$('[data-i18n-aria]').forEach(el => el.setAttribute('aria-label', t(el.dataset.i18nAria)));
     $$('[data-i18n-cursor]').forEach(el => el.setAttribute('data-cursor', t(el.dataset.i18nCursor)));
+    $$('[data-i18n-placeholder]').forEach(el => el.setAttribute('placeholder', t(el.dataset.i18nPlaceholder)));
     $$('[data-scramble]').forEach(el => { el.dataset.label = el.textContent; });
   }
   applyCopy();
@@ -575,4 +576,12 @@
   });
 
   addEventListener('resize', () => setStage(currentStage, true));
+
+  // small surface for chat.js: smooth scroll, current language, copy lookup, scroll lock
+  window.edelphia = {
+    scrollTo,
+    get lang() { return lang; },
+    t,
+    lockScroll(on) { if (lenis) on ? lenis.stop() : lenis.start(); },
+  };
 })();

@@ -102,6 +102,22 @@
       'cta.lead': 'Acompanhe o nosso trabalho e comece a conversa.',
 
       'footer.top': 'Voltar ao topo ↑',
+
+      'chat.open': 'Abrir o assistente EDELPHIA',
+      'chat.close': 'Fechar o assistente',
+      'chat.reset': 'Nova conversa',
+      'chat.title': 'Assistente EDELPHIA',
+      'chat.status': 'IA · sobre o site e a empresa',
+      'chat.greeting': 'Olá! Sou o assistente da EDELPHIA. Posso explicar a nossa visão, as soluções de IA &amp; ML ou ajudá-lo a navegar no site. O que gostaria de saber?',
+      'chat.s1': 'O que faz a EDELPHIA?',
+      'chat.s2': 'Explique Φ = ∫ knowledge · dt',
+      'chat.s3': 'Como é uma solução end-to-end?',
+      'chat.s4': 'Como posso entrar em contacto?',
+      'chat.placeholder': 'Escreva a sua pergunta…',
+      'chat.send': 'Enviar',
+      'chat.note': 'Respostas geradas por IA — podem conter imprecisões.',
+      'chat.offline': 'O assistente ainda não está configurado neste servidor.',
+      'chat.error': 'Não foi possível obter resposta. Verifique a ligação e tente novamente.',
     },
 
     en: {
@@ -195,6 +211,22 @@
       'cta.lead': 'Follow our work and start the conversation.',
 
       'footer.top': 'Back to top ↑',
+
+      'chat.open': 'Open the EDELPHIA assistant',
+      'chat.close': 'Close the assistant',
+      'chat.reset': 'New conversation',
+      'chat.title': 'EDELPHIA Assistant',
+      'chat.status': 'AI · about the site and the company',
+      'chat.greeting': 'Hello! I’m the EDELPHIA assistant. I can explain our vision, our AI &amp; ML solutions, or help you find your way around the site. What would you like to know?',
+      'chat.s1': 'What does EDELPHIA do?',
+      'chat.s2': 'Explain Φ = ∫ knowledge · dt',
+      'chat.s3': 'What does an end-to-end solution look like?',
+      'chat.s4': 'How can I get in touch?',
+      'chat.placeholder': 'Type your question…',
+      'chat.send': 'Send',
+      'chat.note': 'AI-generated answers — may contain inaccuracies.',
+      'chat.offline': 'The assistant isn’t configured on this server yet.',
+      'chat.error': 'Couldn’t get a reply. Check your connection and try again.',
     },
   };
 })();

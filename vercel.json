@@ -2,9 +2,11 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "buildCommand": "",
-  "installCommand": "",
   "outputDirectory": "site",
   "cleanUrls": true,
+  "functions": {
+    "api/chat.js": { "maxDuration": 60 }
+  },
   "headers": [
     {
       "source": "/assets/(.*)",
