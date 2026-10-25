@@ -61,6 +61,7 @@
     uniform float uSize;
     uniform float uIntro;
     uniform float uDim;
+    uniform float uLight;
     uniform vec3  uMouse;
     uniform float uMouseStrength;
 
@@ -165,11 +166,15 @@
       vec3 soft  = vec3(0.620, 0.761, 1.0);
       vec3 white = vec3(0.949, 0.961, 0.976);
       float h = fract(aRandom * 7.31);
-      vColor = h < 0.55 ? mix(blue, soft, h / 0.55) : mix(soft, white, (h - 0.55) / 0.45);
-      vColor += f * 0.6;
+      vec3 darkC = h < 0.55 ? mix(blue, soft, h / 0.55) : mix(soft, white, (h - 0.55) / 0.45);
+      // light theme: navy → brand blue, drawn with normal blending
+      vec3 navy = vec3(0.039, 0.059, 0.094);
+      vec3 deep = vec3(0.122, 0.373, 0.839);
+      vec3 lightC = h < 0.5 ? mix(navy, deep, h / 0.5) : mix(deep, blue, (h - 0.5) / 0.5);
+      vColor = mix(darkC + f * 0.6, mix(lightC, blue, f * 0.8), uLight);
 
       float depth = smoothstep(14.0, 3.0, -mv.z);
-      vAlpha = (0.35 + 0.65 * depth) * (0.55 + 0.45 * aRandom) * uIntro * uDim;
+      vAlpha = (0.35 + 0.65 * depth) * (0.55 + 0.45 * aRandom) * uIntro * uDim * (1.0 + uLight * 0.25);
     }
   `;
 
@@ -318,6 +323,7 @@
         uSize: { value: 26 },
         uIntro: { value: 0 },
         uDim: { value: 1 },
+        uLight: { value: 0 },
         uMouse: { value: this.mouseWorld },
         uMouseStrength: { value: 0 },
       };
@@ -331,6 +337,7 @@
         blending: THREE.AdditiveBlending,
       });
 
+      this.material = mat;
       this.points = new THREE.Points(geo, mat);
       this.group = new THREE.Group();
       this.group.add(this.points);
@@ -355,6 +362,14 @@
     get progress() { return this.uniforms.uProgress; }
     get intro() { return this.uniforms.uIntro; }
     get dim() { return this.uniforms.uDim; }
+
+    // additive glow only reads on dark backgrounds; light mode uses normal blending
+    setTheme(light) {
+      this.uniforms.uLight.value = light ? 1 : 0;
+      this.material.blending = light ? THREE.NormalBlending : THREE.AdditiveBlending;
+      this.material.needsUpdate = true;
+      this.renderer.render(this.scene, this.camera);   // fresh frame for the view-transition snapshot
+    }
 
     resize() {
       const w = innerWidth, h = innerHeight;

@@ -345,7 +345,7 @@
     // footer wordmark draws itself
     const ftl = gsap.timeline({ scrollTrigger: { trigger: '.footer', start: 'top 80%' } });
     ftl.to('.footer__word path', { strokeDashoffset: 0, duration: 2.6, ease: 'power2.inOut' })
-       .to('.footer__word path', { fill: '#F2F5F9', strokeOpacity: 0, duration: 1.2, ease: 'power2.out' }, '-=0.6')
+       .to('.footer__word path', { fillOpacity: 1, strokeOpacity: 0, duration: 1.2, ease: 'power2.out' }, '-=0.6')
        .to('.footer__dot', { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.8');
   }
 
@@ -414,6 +414,35 @@
     }, 340);
   }
   $('[data-lang-toggle]').addEventListener('click', () => setLang(lang === 'pt' ? 'en' : 'pt'));
+
+  /* ---------- theme switch (dark default; light reveals in a circle from the button) ---------- */
+  const THEME_KEY = 'edelphia-theme';
+  const themeMeta = $('meta[name="theme-color"]');
+  const isLight = () => document.documentElement.dataset.theme === 'light';
+
+  function applyTheme(light) {
+    if (light) document.documentElement.dataset.theme = 'light';
+    else delete document.documentElement.dataset.theme;
+    themeMeta.setAttribute('content', light ? '#F2F5F9' : '#05080E');
+    if (field) field.setTheme(light);
+  }
+  applyTheme(isLight());
+
+  $('[data-theme-toggle]').addEventListener('click', e => {
+    const light = !isLight();
+    try { localStorage.setItem(THEME_KEY, light ? 'light' : 'dark'); } catch (err) { /* storage blocked */ }
+    if (reduced || !document.startViewTransition) { applyTheme(light); return; }
+    const r = e.currentTarget.getBoundingClientRect();
+    const x = r.left + r.width / 2, y = r.top + r.height / 2;
+    const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    const vt = document.startViewTransition(() => applyTheme(light));
+    vt.ready.then(() => {
+      document.documentElement.animate(
+        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+        { duration: 1000, easing: 'cubic-bezier(.16, 1, .3, 1)', pseudoElement: '::view-transition-new(root)' }
+      );
+    });
+  });
 
   /* ---------- the integral chart ---------- */
   function buildChart() {

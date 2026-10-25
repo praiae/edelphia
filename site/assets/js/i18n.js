@@ -15,6 +15,7 @@
       'meta.title': 'EDELPHIA — Science · Algorithms · Intelligence',
       'meta.desc': 'EDELPHIA — soluções end-to-end de inteligência artificial e machine learning. Φ = ∫ knowledge · dt.',
       'lang.label': 'Mudar idioma',
+      'theme.label': 'Alternar modo claro / escuro',
       'stages': ['Símbolo', 'Galáxia de dados', 'Rede neural', 'Campo de onda', 'Integração'],
 
       'nav.vision': 'Visão',
@@ -107,6 +108,7 @@
       'meta.title': 'EDELPHIA — Science · Algorithms · Intelligence',
       'meta.desc': 'EDELPHIA — end-to-end artificial intelligence and machine learning solutions. Φ = ∫ knowledge · dt.',
       'lang.label': 'Change language',
+      'theme.label': 'Toggle light / dark mode',
       'stages': ['Symbol', 'Data galaxy', 'Neural network', 'Wave field', 'Integration'],
 
       'nav.vision': 'Vision',

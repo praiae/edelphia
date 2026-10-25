@@ -6,6 +6,10 @@
   <title>EDELPHIA — Science · Algorithms · Intelligence</title>
   <meta name="description" content="EDELPHIA — end-to-end AI &amp; machine learning solutions. Φ = ∫ knowledge · dt.">
   <meta name="theme-color" content="#05080E">
+  <script>
+    // apply the saved theme before first paint (dark is the default)
+    try { if (localStorage.getItem('edelphia-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}
+  </script>
   <meta property="og:title" content="EDELPHIA">
   <meta property="og:description" content="Science · Algorithms · Intelligence">
   <meta property="og:image" content="assets/img/og.png">
@@ -77,7 +81,8 @@
   <!-- ============ NAV ============ -->
   <header class="nav">
     <a href="#top" class="nav__logo" data-magnetic aria-label="EDELPHIA — início">
-      <img src="assets/img/logo-horizontal.svg" alt="EDELPHIA" width="190" height="54">
+      <img class="logo--dark" src="assets/img/logo-horizontal.svg" alt="EDELPHIA" width="190" height="54">
+      <img class="logo--light" src="assets/img/logo-horizontal-light.svg" alt="" width="190" height="54">
     </a>
     <nav class="nav__links" aria-label="Main">
       <a href="#visao" data-scramble data-i18n="nav.vision"></a>
@@ -91,6 +96,10 @@
         <span class="lang__opt" data-lang-opt="pt">PT</span>
         <span class="lang__opt" data-lang-opt="en">EN</span>
         <i class="lang__pill"></i>
+      </button>
+      <button class="theme" data-theme-toggle data-i18n-aria="theme.label">
+        <svg class="theme__moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>
+        <svg class="theme__sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
       </button>
       <a href="#contacto" class="btn btn--ghost nav__cta" data-magnetic><span data-i18n="nav.cta"></span></a>
       <button class="nav__burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
